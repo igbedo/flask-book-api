@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskbookapi
+  labels:
+    app: flaskbookapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskbookapi
+  template:
+    metadata:
+      labels:
+        app: flaskbookapi
+    spec:
+      containers:
+      - name: flaskbookapi
+        image: igbedo/flaskbookapi:1.0
+        ports:
+        - containerPort: 5000
